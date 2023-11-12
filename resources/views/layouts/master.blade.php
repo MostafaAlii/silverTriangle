@@ -47,8 +47,6 @@ footer -->
             @include('layouts.common.includes.footer')
         </div><!-- main content wrapper end-->
     </div>
-    </div>
-    </div>
 
     <!--=================================
 footer -->
