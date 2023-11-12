@@ -19,7 +19,7 @@
                 <!-- === Start logo === -->
                 <div class="header-left">
                     <div class="site-logo">
-                        <a href="index.html" data-toggle="dropdown" aria-expanded="false">
+                        <a href="{{route('home') }}" data-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/website/img/logo/logo.png')}}" alt="Omnivus">
                         </a>
                     </div>
@@ -28,6 +28,29 @@
                 <!-- === Start nav bar === -->
                 <div class="site-nav-menu">
                     <ul class="primary-menu">
+                        <li>
+                            <a href="#" data-toggle="dropdown" aria-expanded="false">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>
+                            <ul class="submenu">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        @auth('web')
+                            <li>
+                                <a href="#" data-toggle="dropdown" aria-expanded="false">{{get_user_data()->name}}</a>
+                                <ul class="submenu">
+                                    <li><a onclick="event.preventDefault(); document.getElementById('user-log-out').submit();">تسجيل الخروج</a></li>
+                                    <form id="user-log-out" action="{{ route(get_guard_name().'.logout') }}" method="POST">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </li>
+                        @endauth
                         <li class="current">
                             <a href="#">الصفحه الرئيسيه</a>
                         </li>
