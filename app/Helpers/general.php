@@ -10,4 +10,16 @@ if (!function_exists('get_user_data')) {
     }
 }
 
+if(!function_exists('get_guard_name')) {
+    function get_guard_name() {
+        $guards = ['admin', 'web'];
+        foreach($guards as $guard){
+            if(auth($guard)->check()){
+                return $guard;
+            }
+        }
+        return null;
+    }
+}
+
 

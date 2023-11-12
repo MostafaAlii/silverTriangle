@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" dir="rtl">
+<html lang="en" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <!--====== Required meta tags ======-->
@@ -29,7 +29,9 @@
     <!--====== Main Css ======-->
     <link rel="stylesheet" href="{{asset('assets/website/css/style.css')}}" />
     <!--====== Arabic Css ======-->
-    <link rel="stylesheet" href="{{asset('assets/website/css/arabic.css')}}" />
+    @if (App::getLocale() == 'ar')
+        <link rel="stylesheet" href="{{asset('assets/website/css/arabic.css')}}" />
+    @endif
     <!--====== Jquery ======-->
     <script src="{{asset('assets/website/js/jquery-1.12.4.min.js')}}"></script>
     @yield('css')

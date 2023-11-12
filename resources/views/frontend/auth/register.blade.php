@@ -1,4 +1,4 @@
-<form autocomplete="off" class="sign-up-form">
+<form method="post" action="{{-- route('web.login') --}}" autocomplete="off" class="sign-up-form">
     <div class="logobox">
         <h1 class="LogoWord"> Silver Tringle </h1>
         <!-- <img src="./img/logo.png" alt="easyclass" /> -->
@@ -31,14 +31,10 @@
                 autocomplete="off" required />
             <label> كلمة السر </label>
         </div>
-
-        <input type="submit" value=" اشتراك " class="sign-btn" />
+        <button type="submit" class="sign-btn">اشتراك</button>
 
         <p class="text">
-
-            <a href="legal.html"
-                class="toggelBox main-btn rounded-btn icon-right small-size">
-                قانوني </a>
+            <a href="#" class="toggelBox main-btn rounded-btn icon-right small-size">قانوني </a>
         </p>
     </div>
 </form>
