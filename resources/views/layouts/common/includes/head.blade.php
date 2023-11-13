@@ -27,12 +27,7 @@
 @yield('css')
 <!--- Style css -->
 @if (App::getLocale() == 'en')
-<link href="{{ URL::asset('assets/css/ltr.css') }}" rel="stylesheet">
-<style>
-    .scrollbar {
-        overflow-x: hidden !important;
-    }
-</style>
+    <link href="{{ URL::asset('assets/css/ltr.css') }}" rel="stylesheet">
 @else
-<link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif

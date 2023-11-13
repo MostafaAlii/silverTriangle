@@ -22,4 +22,10 @@ if(!function_exists('get_guard_name')) {
     }
 }
 
+function uploadImage($folder,$image){
+    $image->store('/', $folder);
+    $filename = $image->hashName();
+    return  $filename;
+ }
+
 
