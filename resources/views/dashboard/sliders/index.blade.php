@@ -33,7 +33,40 @@
                     </a>
                     <br><br>
                     <!--begin::Table-->
-                    
+                    <!-- Start table-responsive -->
+                    <div class="table-responsive">
+                        <table id="datatable" class="table table-striped table-hover table-responsive-lg table-bordered p-0">
+                            <thead class="thead-dark text-center">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Note</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                @foreach($sliders as $index=>$slider)
+                                    <tr>
+                                        <td>{{ $index + 1}}</td>
+                                        <td><img src="{{ $slider->image_path }}" style="width: 60px;" class="rounded-circle" alt=""></td>
+                                        <td>{{ $slider->name}}</td>
+                                        <td>{{ $slider->note}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{ $slider->id }}" title="{{ trans('general.edit') }}">
+                                                    <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $slider->id }}" title="{{ trans('general.delete') }}">
+                                                    <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    @include('dashboard.sliders.btn.edit')
+                                    @include('dashboard.sliders.btn.delete')
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <!--end::Table-->
                 </div>
                 @include('dashboard.sliders.btn.create')

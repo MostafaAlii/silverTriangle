@@ -34,7 +34,7 @@ preloader -->
         <!-- main-content -->
         <div class="content-wrapper" style="overflow: hidden; width: auto !important;">
 
-
+                @include('layouts.common.partials.messages')
                 @yield('page-header')
 
 
